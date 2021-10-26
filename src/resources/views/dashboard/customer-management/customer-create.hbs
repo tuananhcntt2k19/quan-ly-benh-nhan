@@ -1,0 +1,91 @@
+<div class="wrapper">
+    {{> sidebar span= user.username}}
+    <div class="main-panel">
+      {{> navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row bus-schedule">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-rose card-header-text">
+                  <div class="card-text">
+                    <h4 class="card-title">Thêm mới bệnh nhân</h4>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <form method="POST" action="/dashboard/customer/store" class="form-horizontal">
+                    <div class="row full-name">
+                      <label class="col-sm-2 col-form-label">Họ Tên Bệnh Nhân</label>
+                      <div class="col-sm-10">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="fullname" autocomplete="off">
+                          <span class="bmd-help">Họ và tên của bệnh nhân</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row phone">
+                      <label class="col-sm-2 col-form-label">Số Điện Thoại</label>
+                      <div class="col-sm-10">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="phone" autocomplete="off">
+                          <span class="bmd-help">Số điện thoại của bệnh nhân</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row car-type">
+                      <label class="col-sm-2 col-form-label">Chọn Giới Tính</label>
+                      <div class="col-sm-10">
+                        <select class="selectpicker" data-style="btn-rose" name="gender" data-width="35%">
+                          <option value="Nam">Nam</option>
+                          <option value="Nữ">Nữ</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row car-type">
+                      <label class="col-sm-2 col-form-label">Chọn Độ Tuổi</label>
+                      <div class="col-sm-10">
+                        <select class="selectpicker" data-style="btn-rose" name="age" data-width="35%">
+                          <option value="0 - 28 ngày">0 - 28 ngày</option>
+                          <option value="29 ngày - 1 tuổi">29 ngày - 1 tuổi</option>
+                          <option value="1 - 5 tuổi">1 - 5 tuổi</option>
+                          <option value="6 - 12 tuổi">6 - 12 tuổi</option>
+                          <option value="13 - 16 tuổi">13 - 16 tuổi</option>
+                          <option value="17 - 29 tuổi">17 - 29 tuổi</option>
+                          <option value="30 - 39 tuổi">30 - 39 tuổi</option>
+                          <option value="40 - 49 tuổi">40 - 49 tuổi</option>
+                          <option value="50 - 64 tuổi">50 - 64 tuổi</option>
+                          <option value="65+ tuổi">65+ tuổi</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row car-type">
+                      <label class="col-sm-2 col-form-label">Chọn Triệu Chứng</label>
+                      <div class="col-sm-10">
+                        <select class="selectpicker" data-style="btn-rose" name="symptom" data-width="35%">
+                          {{#each listSymptoms}}
+                          <option value="{{this.name}}">{{this.name}}</option>
+                          {{/each}}
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="text-left">
+                          <a href="/dashboard/customers" class="btn btn-rose">Quay Lại</a>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="text-right">
+                          <button type="submit" class="btn btn-rose">Thêm Mới</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

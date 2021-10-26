@@ -1,0 +1,5 @@
+document user: quản lí quản trị viên: email, mật khẩu
+document patient: quản lí thông tin bệnh nhân: tên, tuổi, giới tính triệu chứng
+document symptom: quản lí các triệu chứng: tên triệu chứng, mô tả triệu chứng, chẩn đoán bệnh
+
+https://patient.info/symptom-checker

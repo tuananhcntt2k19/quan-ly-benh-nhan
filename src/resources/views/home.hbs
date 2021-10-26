@@ -1,0 +1,119 @@
+{{> navbar-home}}
+<div class="page-header header-filter bg-custom" data-parallax="true">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="title">Kiểm tra sức khoẻ online</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main main-raised info-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-2 mb-3">
+        <h3 class="text-muted text-center text-uppercase">Phiếu nhập thông tin</h3>
+      </div>  
+      <div class="col-md-12 mt-2 mb-3">
+        <form action="/symptom-checker" method="POST">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="form-group has-default bmd-form-group">
+                <label for="">Họ và tên</label>
+                <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname">
+              </div>
+              <div class="form-group has-default bmd-form-group">
+                <label for="">Số điện thoại</label>
+                <input type="text" class="form-control" placeholder="0912123456" name="phone">
+              </div>
+              <div class="form-group has-default bmd-form-group">
+                <label for="">Độ Tuổi</label>
+                <input type="text" class="form-control" placeholder="18" name="age">
+              </div>
+              <div class="form-group has-default bmd-form-group">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="" class="d-block">Giới tính</label>
+                    <select class="selectpicker" data-style="select-with-transition" title="Giới tính" name="gender">
+                      <option value="Nam">Nam</option>
+                      <option value="Nữ">Nữ</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="" class="d-block">Triệu Chứng</label>
+                    <select class="selectpicker" data-live-search="true" data-style="select-with-transition" title="Chọn triệu chứng" name="symptom">
+                      {{#each symptom}}
+                      <option data-tokens="{{this.name}}">{{this.name}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-7">
+              <label for="">Ghi chú</label>
+              <textarea class="form-control" rows="5" id="exampleInputTextarea" name="note"></textarea>
+              <div class="text-right">
+                <button class="btn btn-primary mt-4" type="submit">Kiểm tra</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="section text-center news">
+    <h2 class="title">Tin Tức Cập Nhật</h2>
+    <h4>Tin tức mới nhất về sức khoẻ</h4>
+    <div class="team">
+      <div class="row">
+        {{#each news}}
+        <div class="col-md-4">
+          <div class="card card-blog" style="height: 365px">
+            <div class="card-header card-header-image">
+              <a href="#pablo">
+                <img class="img img-raised" src="assets/img/bg9.jpg">
+              </a>
+            <div class="colored-shadow" style="background-image: url(&quot;assets/img/examples/blog7.jpg&quot;); opacity: 1;"></div></div>
+            <div class="card-body">
+              <h6 class="category text-danger mt-2"> {{this.category}} </h6>
+              <h4 class="card-title">
+                <a href="/news/{{this.slug}}">{{this.title}}</a>
+              </h4>
+              <p class="card-description">{{characterLimit "100" content}}<a class="pl-2" href="/news/{{this.slug}}">Xem thêm</a></p>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer footer-default">
+  <div class="container">
+    <div class="copyright text-center">
+      &copy;
+      <script>
+        document.write(new Date().getFullYear())
+      </script>, made with <i class="material-icons">favorite</i> by
+      <a href="#" target="_blank">SucKhoe.Online</a>
+    </div>
+  </div>
+</footer>
+<script>
+  $('.datetimepicker').datetimepicker({
+      icons: {
+          time: "fa fa-clock-o",
+          date: "fa fa-calendar",
+          up: "fa fa-chevron-up",
+          down: "fa fa-chevron-down",
+          previous: 'fa fa-chevron-left',
+          next: 'fa fa-chevron-right',
+          today: 'fa fa-screenshot',
+          clear: 'fa fa-trash',
+          close: 'fa fa-remove'
+      }
+  });
+</script>

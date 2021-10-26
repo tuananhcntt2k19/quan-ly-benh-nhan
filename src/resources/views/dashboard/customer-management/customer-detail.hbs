@@ -1,0 +1,82 @@
+<div class="wrapper">
+    {{> sidebar span= user.username}}
+    <div class="main-panel">
+      {{> navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row bus-detail">
+              <div class="col-md-6">
+                <div class="card vehicle-info">
+                    <div class="card-header card-header-text card-header-rose">
+                        <div class="card-text">
+                        <h4 class="card-title">Thông Tin Bệnh Nhân</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"><span class="font-weight-bold">Tên Bệnh Nhân:</span></div>
+                                <div class="col-md-9"><span class="text-muted">{{customer.fullname}}</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"><span class="font-weight-bold">Số Điện Thoại:</span></div>
+                                <div class="col-md-9"><span class="text-muted">{{customer.phone}}</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"><span class="font-weight-bold">Tuổi:</span></div>
+                                <div class="col-md-9"><span class="text-muted">{{customer.age}}</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"><span class="font-weight-bold">Giới Tính:</span></div>
+                                <div class="col-md-9"><span class="text-muted">{{customer.gender}}</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"><span class="font-weight-bold">Triệu Chứng:</span></div>
+                                <div class="col-md-9"><span class="text-muted">{{customer.symptom}}</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-3"><span class="font-weight-bold">Ghi chú:</span></div>
+                                <div class="col-md-9"><span class="text-muted">{{customer.note}}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                                  <div class="card record-info">
+                    <div class="card-header card-header-text card-header-rose">
+                        <div class="card-text">
+                        <h4 class="card-title">Thông Tin Bảng Ghi</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4"><span class="font-weight-bold">Thời giao tạo:</span></div>
+                                <div class="col-md-8"><span class="text-muted">{{customer.createdAt}}</span></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-4"><span class="font-weight-bold">Thời gian cập nhật:</span></div>
+                                <div class="col-md-8"><span class="text-muted">{{customer.updatedAt}}</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

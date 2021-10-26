@@ -1,0 +1,55 @@
+<div class="wrapper">
+    {{> sidebar span= user.username}}
+    <div class="main-panel">
+      {{> navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row news">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <br>
+                    <input id="name" class="form-control" placeholder="Họ tên" value="{{user.username}}">
+                    <br>
+                    <textarea id="message" class="form-control" placeholder="Nhập tin nhắn tại đây"></textarea>
+                    <br>
+                    <button id="send" class="btn btn-success">Gửi</button>
+                </div>
+                <div id="messages">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script>
+var socket = io();
+
+    $(() => {
+      $("#send").click(() => {
+        sendMessage({
+          name: $("#name").val(),
+          message: $("#message").val()
+        });
+      });
+      getMessages();
+      socket.on('message', addMessages);
+    });
+    function addMessages(message) {
+      $("#messages").append(`
+        <h4> ${message.name} </h4>
+        <p>  ${message.message} </p>`);
+    }
+
+    function getMessages() {
+      $.get('http://127.0.0.1:3000/messages', (data) => {
+        data.forEach(addMessages);
+      })
+    }
+
+    function sendMessage(message) {
+      $.post('http://127.0.0.1:3000/dashboard/message/store', message);
+    }
+</script>
+</div>

@@ -1,0 +1,137 @@
+{{> navbar-home}}
+<div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('assets/img/examples/bg2.jpg');">
+</div>
+  <div class="main main-raised">
+    <div class="container">
+      {{#if symptom}}
+      <div class="row">
+        <div class="col-md-12 my-3">
+          <div class="card card-nav-tabs trip-schedule">
+            <h4 class="card-header card-header-info text-center">Thông tin chung</h4>
+            <div class="card-body">
+              <div class="blockquote undefined">
+                {{symptom.description}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 my-3">
+          <div class="card card-nav-tabs trip-schedule">
+            <h4 class="card-header card-header-info text-center">Thông tin bệnh nhân</h4>
+            <div class="card-body">
+              <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-5"><span class="font-weight-bold">Tên Bệnh Nhân:</span></div>
+                    <div class="col-md-7"><span class="text-muted">{{patient.fullname}}</span></div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-5"><span class="font-weight-bold">Tuổi:</span></div>
+                    <div class="col-md-7"><span class="text-muted">{{patient.age}}</span></div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-5"><span class="font-weight-bold">Điện thoại:</span></div>
+                    <div class="col-md-7"><span class="text-muted">{{patient.phone}}</span></div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-5"><span class="font-weight-bold">Giới tính:</span></div>
+                    <div class="col-md-7"><span class="text-muted">{{patient.gender}}</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 my-3">
+          <div class="card card-nav-tabs seats-map">
+            <h4 class="card-header card-header-info text-center">Cách điều trị</h4>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="pick-seat">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+                          <div class="card card-plain">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#_{{symptom.treatment1}}" aria-expanded="true" aria-controls="collapseOne">
+                                  Cách số 1
+                                    <i class="material-icons">keyboard_arrow_down</i>
+                                </a>
+                            </div>
+                            <div id="_{{symptom.treatment1}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                              <div class="card-body">
+                                {{symptom.treatment1}}
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                        <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+                          <div class="card card-plain">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#_{{symptom.treatment2}}" aria-expanded="true" aria-controls="collapseOne">
+                                  Cách số 2
+                                    <i class="material-icons">keyboard_arrow_down</i>
+                                </a>
+                            </div>
+                            <div id="_{{symptom.treatment2}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                              <div class="card-body">
+                                {{symptom.treatment2}}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="accordion" role="tablist" aria-multiselectable="true" class="card-collapse">
+                          <div class="card card-plain">
+                            <div class="card-header" role="tab" id="headingOne">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#_{{symptom.treatment3}}" aria-expanded="true" aria-controls="collapseOne">
+                                  Cách số 3
+                                    <i class="material-icons">keyboard_arrow_down</i>
+                                </a>
+                            </div>
+                            <div id="_{{symptom.treatment2}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                              <div class="card-body">
+                                <a href="http://127.0.0.1:4000/" class="btn btn-primary" target="_blank">Hỗ trợ trực tuyến</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{else}}
+      <div class="row mb-4">
+        <div class="col-md-12 text-center">
+          <h2 class="title">Không tìm triệu chứng</h2>
+          <img src="assets/img/notfound.png" alt="" class="img-fluid">
+          <p class="text-muted" style="margin-top: 2.142rem;">Hiện tại SucKhoe.Online chưa có thông tin về triệu chứng bệnh này.
+          Xin bệnh nhân vui lòng thử lại sau. Xin cảm ơn !</p>
+          <a href="/" class="btn btn-primary btn-lg mb-4">Quay Lại</a>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+  <footer class="footer footer-default">
+    <div class="container">
+      <div class="copyright text-center">
+        &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script>, made with <i class="material-icons">favorite</i> by
+        <a href="#" target="_blank">SucKhoe.Online</a>
+      </div>
+    </div>
+  </footer>

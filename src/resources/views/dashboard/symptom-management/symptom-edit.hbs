@@ -1,0 +1,82 @@
+<div class="wrapper">
+    {{> sidebar span= user.username}}
+    <div class="main-panel">
+      {{> navbar}}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row bus-schedule">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-rose card-header-text">
+                  <div class="card-text">
+                    <h4 class="card-title">Cập nhật triệu chứng</h4>
+                  </div>
+                </div>
+                <div class="card-body ">
+                  <form method="POST" action="/dashboard/symptom/{{symptom._id}}?_method=PUT" class="form-horizontal">
+                    <div class="row title">
+                      <label class="col-sm-2 col-form-label">Tên triệu chứng</label>
+                      <div class="col-sm-10">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="name" value="{{symptom.name}}" autocomplete="off">
+                          <span class="bmd-help">Tên triệu chứng</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row content">
+                      <label class="col-sm-2 col-form-label">Mô tả</label>
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <textarea class="form-control" rows="5" name="description">{{symptom.description}}</textarea>
+                              <span class="bmd-help">Mô tả triệu chứng</span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row content">
+                      <label class="col-sm-2 col-form-label">Cách điều trị số 1</label>
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <textarea class="form-control" rows="5" name="treatment1">{{symptom.treatment1}}</textarea>
+                              <span class="bmd-help">Cách điều trị bệnh</span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row content">
+                      <label class="col-sm-2 col-form-label">Cách điều trị số 2</label>
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <textarea class="form-control" rows="5" name="treatment2">{{symptom.treatment2}}</textarea>
+                              <span class="bmd-help">Cách điều trị bệnh</span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row content">
+                      <label class="col-sm-2 col-form-label">Cách điều trị số 3</label>
+                      <div class="col-sm-10">
+                          <div class="form-group">
+                              <textarea class="form-control" rows="5" name="treatment3">{{symptom.treatment3}}</textarea>
+                              <span class="bmd-help">Cách điều trị bệnh</span>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="text-left">
+                          <a href="/dashboard/symptom" class="btn btn-rose">Quay Lại</a>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="text-right">
+                          <button type="submit" class="btn btn-rose">Cập Nhật</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
